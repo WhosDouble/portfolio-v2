@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { AnimatedBackground } from "animated-backgrounds";
 import "./App.css";
-import Loading from "./componets/Loader";
-import Navbar from "./componets/Navbar";
-import MainTitle from "./componets/MainTitle";
+import Loading from "./components/Loader";
+import Navbar from "./components/Navbar";
+import MainTitle from "./components/MainTitle";
 
 function App() {
   //useState() for the loader
