@@ -13,18 +13,38 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
+  //setting state to change the background every time each page load
+  const [animatedBackground, setAnimatedBackground] =
+    useState<string>("auroraBorealis");
+
+  //state to handle nightMode
+  const [darkMode, setDarkMode] = useState(false);
+  //useEffect to change the animated background
+  useEffect(() => {
+    const animations = { dark: "auroraBorealis", light: "gradientWave" };
+    const background = darkMode ? animations.dark : animations.light;
+    setAnimatedBackground(background);
+
+    localStorage.setItem("backgroundAnimations", background);
+  }, [darkMode]);
+  //function to switch night mode
+  function nightMode() {
+    setDarkMode((prevState) => !prevState);
+    console.log("nightMode toggled");
+  }
+
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
         <div>
-          <AnimatedBackground animationName="auroraBorealis" />
-          <Navbar />
+          <AnimatedBackground animationName={animatedBackground} />
+          <Navbar nightMode={nightMode} />
           <MainTitle />
         </div>
       )}
