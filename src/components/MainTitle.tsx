@@ -15,7 +15,7 @@ const MainTitle: React.FC<MainTitleProps> = (props) => {
       <h2 className="text-white text-[40px] leading-tight">
         THIS IS FILLER IDK WHAT TO PUT
       </h2>
-      <p className="text-white">I am a software engineer</p>
+      <p className="text-white">I am a frontend developer</p>
       <p className="text-white">&& this is more filler</p>
       {/* This is the links for the contact and projects */}
       <div className="flex gap-5 mt-10">
