@@ -21,15 +21,18 @@ function App() {
   const [animatedBackground, setAnimatedBackground] =
     useState<string>("auroraBorealis");
 
-  //state to handle nightMode
-  const [darkMode, setDarkMode] = useState(false);
+  //state to handle nightMode and save it to local storage
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
   //useEffect to change the animated background
   useEffect(() => {
     const animations = { dark: "auroraBorealis", light: "gradientWave" };
     const background = darkMode ? animations.dark : animations.light;
     setAnimatedBackground(background);
 
-    localStorage.setItem("backgroundAnimations", background);
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
   //function to switch night mode
   function nightMode() {
