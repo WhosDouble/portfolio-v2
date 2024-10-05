@@ -1,4 +1,11 @@
-export default function MainTitle(props) {
+import React from "react";
+
+// Defining props (can be empty if no props are needed)
+interface MainTitleProps {
+  dynamic: any;
+}
+
+const MainTitle: React.FC<MainTitleProps> = (props) => {
   return (
     <div className="flex flex-col justify-center items-center p-20">
       <h1 className="text-white text-[40px] leading-tight">
@@ -10,17 +17,17 @@ export default function MainTitle(props) {
       </h2>
       <p className="text-white">I am a software engineer</p>
       <p className="text-white">&& this is more filler</p>
-      {/*this is the links for the contact and projects*/}
+      {/* This is the links for the contact and projects */}
       <div className="flex gap-5 mt-10">
         <a href="" className="text-white">
-          {" "}
           -- See my projects
         </a>
         <a href="" className="text-white">
-          {" "}
           -- Contact me
         </a>
       </div>
     </div>
   );
-}
+};
+
+export default MainTitle;

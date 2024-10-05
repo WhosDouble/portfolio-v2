@@ -1,7 +1,11 @@
 import { FiGrid } from "react-icons/fi";
 import { RxMoon } from "react-icons/rx";
+//defining prop interface for darkMode
+interface NavbarProps {
+  nightMode: () => void;
+}
 
-function Navbar(props) {
+const Navbar: React.FC<NavbarProps> = (props) => {
   //just the component for the top of the main page
   return (
     <nav className="flex p-7 gap-4 items-center">
@@ -28,5 +32,5 @@ function Navbar(props) {
       </svg>
     </nav>
   );
-}
+};
 export default Navbar;

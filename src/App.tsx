@@ -51,7 +51,7 @@ function App() {
   }, [darkMode]);
   //function to switch night mode from true to false vise versa
   function nightMode() {
-    setDarkMode((prevState) => !prevState);
+    setDarkMode((prevState: boolean) => !prevState);
   }
 
   return (
