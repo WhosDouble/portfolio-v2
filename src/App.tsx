@@ -33,11 +33,25 @@ function App() {
     setAnimatedBackground(background);
 
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
+
+    //changing the ::selection based off darkMode
+    const style = document.createElement("style");
+    style.innerHTML = `
+      ::selection {
+        background-color: ${darkMode ? "#eee" : "#1b1b1b"};
+        color: ${darkMode ? "#1b1b1b" : "#eee"};
+      }
+    `;
+    //appending the style to the dom
+    document.head.appendChild(style);
+    // Cleanup to remove style on unmount || change
+    return () => {
+      document.head.removeChild(style);
+    };
   }, [darkMode]);
-  //function to switch night mode
+  //function to switch night mode from true to false vise versa
   function nightMode() {
     setDarkMode((prevState) => !prevState);
-    console.log("nightMode toggled");
   }
 
   return (
@@ -48,7 +62,7 @@ function App() {
         <div>
           <AnimatedBackground animationName={animatedBackground} />
           <Navbar nightMode={nightMode} />
-          <MainTitle />
+          <MainTitle dynamic={darkMode} />
         </div>
       )}
     </>

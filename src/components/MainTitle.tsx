@@ -1,4 +1,4 @@
-export default function MainTitle() {
+export default function MainTitle(props) {
   return (
     <div className="flex flex-col justify-center items-center p-20">
       <h1 className="text-white text-[40px] leading-tight">
@@ -12,8 +12,14 @@ export default function MainTitle() {
       <p className="text-white">&& this is more filler</p>
       {/*this is the links for the contact and projects*/}
       <div className="flex gap-5 mt-10">
-        <a href=""> -- See my projects</a>
-        <a href=""> -- Contact me</a>
+        <a href="" className="text-white">
+          {" "}
+          -- See my projects
+        </a>
+        <a href="" className="text-white">
+          {" "}
+          -- Contact me
+        </a>
       </div>
     </div>
   );
